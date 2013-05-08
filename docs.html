@@ -19,28 +19,41 @@ title: Bootstrap Documentation
       <h1>Getting started</h1>
     </div>
     <p class="lead">There are a few easy ways to quickly get started with Bootstrap, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
-    <div class="row">
-      <div class="col col-lg-6">
-        <h3>Compiled CSS and JS</h3>
-        <p><strong>The fastest way to get started:</strong> get the compiled and minified versions of our CSS, JavaScript, and fonts. No documentation or original source files are included.</p>
-        <p><a class="btn btn-large btn-primary" href="assets/bootstrap.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Download Bootstrap</a></p>
-      </div>
-      <div class="col col-lg-6">
-        <h3>Latest source code</h3>
-        <p>Get the original files for all CSS and JavaScript, along with a local copy of the docs by downloading the latest version directly from GitHub.</p>
-        <p><a class="btn btn-large" href="https://github.com/twitter/bootstrap/zipball/master" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download Bootstrap source</a></p>
-      </div>
-      <div class="col col-lg-6">
-        <h3>Clone or fork via GitHub</h3>
-        <p>Clone the entire project or fork your own version of Bootstrap to make it your own by visiting us on GitHub.</p>
-        <p><a class="btn btn-large" href="https://github.com/twitter/bootstrap/" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'GitHub project']);">GitHub repository</a></p>
-      </div>
-      <div class="col col-lg-6">
-        <h3>Bower</h3>
-        <p>Install and manage the original files for all CSS and JavaScript, along with a local copy of the docs, using <a href="http://twitter.github.com/bower">Bower</a>.</p>
-        {% highlight bash %}$ bower install bootstrap{% endhighlight %}
-      </div>
+
+    <h3>Download compiled CSS and JS</h3>
+    <p class="lead">The fastest way to get started is to get the compiled and minified versions of our CSS, JavaScript, and fonts. No documentation or original source files are included.</p>
+    <p><a class="btn btn-large btn-primary" href="assets/bootstrap.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Download Bootstrap</a></p>
+
+    <hr>
+
+    <h3 id="download-options">More download options</h3>
+    <div class="bs-docs-dl-options">
+      <h4>
+        <a href="https://github.com/twitter/bootstrap/zipball/master" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download latest source code</a>
+      </h4>
+      <p>Get the original files for all CSS and JavaScript by downloading the latest version directly from GitHub.</p>
+      <h4>
+        <a href="https://github.com/twitter/bootstrap/" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'GitHub project']);">Clone or fork via GitHub</a>
+      </h4>
+      <p>Clone the entire project or fork your own version of Bootstrap to make it your own by visiting us on GitHub.</p>
+      <h4>
+        Install with <a href="http://twitter.github.com/bower">Bower</a>
+      </h4>
+      <p>Install and manage the original files for all CSS and JavaScript, along with a local copy of the docs, using <a href="http://twitter.github.com/bower">Bower</a>.</p>
+      {% highlight bash %}$ bower install bootstrap{% endhighlight %}
     </div>
+
+    <hr>
+
+    <h3 id="bootstrap-cdn">Use the Bootstrap CDN</h3>
+    <p>The folks over at <a href="https://www.netdna.com/">NetDNA</a> have graciously provided CDN support for Bootstrap's CSS and JavaScript. To use, swap your local instances for the <a href="http://www.bootstrapcdn.com/">Bootstrap CDN</a> links listed below.</p>
+{% highlight html linenos %}
+<!-- Latest compiled and minified CSS -->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+{% endhighlight %}
   </div>
 
   <!-- File structure
@@ -1314,10 +1327,14 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <p>Included with Bootstrap are optional form layouts for common use cases.</p>
 
     <h3 id="forms-inline">Inline form</h3>
-    <p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
+    <p>Add <code>.form-inline</code> for left-aligned and inline-block controls for a compact layout.</p>
+    <div class="bs-docs-sidenote">
+      <h4>Requires custom widths</h4>
+      <p>Inputs, selects, and textareas are 100% wide by default in Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.</p>
+    </div>
     <form class="bs-docs-example form-inline">
-      <input type="text" class="col col-lg-3" placeholder="Email">
-      <input type="password" class="col col-lg-3" placeholder="Password">
+      <input type="text" placeholder="Email" style="width: 180px;">
+      <input type="password" placeholder="Password" style="width: 180px;">
       <div class="checkbox">
         <label>
           <input type="checkbox"> Remember me
@@ -1327,8 +1344,8 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     </form><!-- /example -->
 {% highlight html %}
 <form class="form-inline">
-  <input type="text" class="col col-lg-3" placeholder="Email">
-  <input type="password" class="col col-lg-3" placeholder="Password">
+  <input type="text" placeholder="Email" style="width: 180px;">
+  <input type="password" placeholder="Password" style="width: 180px;">
   <div class="checkbox">
     <label>
       <input type="checkbox"> Remember me
@@ -1914,74 +1931,30 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 {% endhighlight %}
 
     <h4>Column sizing</h4>
-    <p>Use <code>.col col-lg-1</code> to <code>.col col-lg-12</code> for setting widths on inputs that match Bootstrap's grid system.</p>
-    <form class="bs-docs-example" style="padding-bottom: 15px;">
-      <div class="controls docs-input-sizes">
-        <input class="col col-lg-1" type="text" placeholder=".col col-lg-1">
-        <input class="col col-lg-2" type="text" placeholder=".col col-lg-2">
-        <input class="col col-lg-3" type="text" placeholder=".col col-lg-3">
-        <select class="col col-lg-1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <select class="col col-lg-2">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <select class="col col-lg-3">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </form>
-{% highlight html %}
-<input class="col col-lg-1" type="text" placeholder=".col col-lg-1">
-<input class="col col-lg-2" type="text" placeholder=".col col-lg-2">
-<input class="col col-lg-3" type="text" placeholder=".col col-lg-3">
-<select class="col col-lg-1">
-  ...
-</select>
-<select class="col col-lg-2">
-  ...
-</select>
-<select class="col col-lg-3">
-  ...
-</select>
-{% endhighlight %}
-
-    <p>If you need multiple inputs on the same line, wrap them in the standard grid markup (with <code>.row</code> and <code>.col-span-*</code> classes). Each input should have it's own column and will expand to fill the available width automatically.</p>
+    <p>Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.</p>
     <form class="bs-docs-example" style="padding-bottom: 15px;">
       <div class="row">
-        <div class="col col-lg-4">
-          <input type="text" placeholder=".col col-lg-4">
+        <div class="col col-lg-2">
+          <input type="text" placeholder="col col-large-2">
+        </div>
+        <div class="col col-lg-3">
+          <input type="text" placeholder="col col-large-3">
         </div>
         <div class="col col-lg-4">
-          <input type="text" placeholder=".col col-lg-4">
-        </div>
-        <div class="col col-lg-4">
-          <input type="text" placeholder=".col col-lg-4">
+          <input type="text" placeholder="col col-large-4">
         </div>
       </div>
     </form>
 {% highlight html %}
 <div class="row">
-  <div class="col col-lg-4">
-    <input type="text" placeholder=".col col-lg-4">
+  <div class="col col-lg-2">
+    <input type="text" placeholder="col col-large-2">
+  </div>
+  <div class="col col-lg-3">
+    <input type="text" placeholder="col col-large-3">
   </div>
   <div class="col col-lg-4">
-    <input type="text" placeholder=".col col-lg-4">
-  </div>
-  <div class="col col-lg-4">
-    <input type="text" placeholder=".col col-lg-4">
+    <input type="text" placeholder="col col-large-4">
   </div>
 </div>
 {% endhighlight %}
@@ -2906,6 +2879,28 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 </div>
 {% endhighlight %}
 
+    <h3 id="btn-groups-nested">Nested button groups</h3>
+    <p>Place buttons groups within button groups when you want dropdown menus mixed with a series of buttons.</p>
+    <div class="bs-docs-example">
+      <div class="btn-group">
+        <button type="button" class="btn">1</button>
+        <button type="button" class="btn">2</button>
+        <button type="button" class="btn">3</button>
+
+        <div class="btn-group">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            Dropdown
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+            <li><a href="#">Dropdown link</a></li>
+           </ul>
+        </div>
+      </div>
+    </div>
+
     <h3 id="btn-groups-vertical">Vertical button groups</h3>
     <p>Make a set of buttons appear vertically stacked rather than horizontally.</p>
     <div class="bs-docs-example">
@@ -3476,12 +3471,44 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <h3 id="navbar-forms">Forms</h3>
     <p>To properly style and position a form within the navbar, add the appropriate classes as shown below. For a default form, include <code>.navbar-form</code> and either <code>.pull-left</code> or <code>.pull-right</code> to properly align it.</p>
     <div class="bs-docs-example">
+
       <div class="navbar">
         <form class="navbar-form pull-left">
           <input type="text" style="width: 200px;">
           <button type="submit" class="btn">Submit</button>
         </form>
       </div>
+
+      <div class="navbar">
+        <form class="navbar-form pull-left">
+          <select name="" id="" style="width: 200px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+
+      <div class="navbar">
+        <form class="navbar-form pull-left">
+          <input type="text" style="width: 200px;">
+          <input type="checkbox">
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+
+      <div class="navbar">
+        <form class="navbar-form pull-left">
+          <input type="text" style="width: 200px;">
+          <label class="checkbox-inline">
+            <input type="checkbox"> Remember me
+          </label>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+
     </div><!-- /example -->
 {% highlight html %}
 <form class="navbar-form pull-left">
@@ -3490,14 +3517,47 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 </form>
 {% endhighlight %}
 
-    <h3>Component alignment</h3>
-    <p>Align nav links, search form, or text, use the <code>.pull-left</code> or <code>.pull-right</code> utility classes. Both classes will add a CSS float in the specified direction.</p>
+    <h3 id="navbar-buttons">Buttons</h3>
+    <p>For buttons not residing in a <code>&lt;form&gt;</code>, add this class to vertically center buttons within a navbar.</p>
+    <div class="bs-docs-example">
+      <div class="navbar">
+        <a href="#" class="navbar-brand">Brand</a>
+        <button type="button" class="btn">Submit</button>
+      </div>
+    </div>
 
-    <h3>Using dropdowns</h3>
-    <p>Add dropdowns and dropups to the nav with a bit of markup and the <a href="./javascript.html#dropdowns">dropdowns JavaScript plugin</a>.</p>
-
-    <h3>Text</h3>
+    <h3 id="navbar-text">Text</h3>
     <p>Wrap strings of text in an element with <code>.navbar-text</code>, usually on a <code>&lt;p&gt;</code> tag for proper leading and color.</p>
+    <div class="bs-docs-example">
+      <div class="navbar">
+        <a href="#" class="navbar-brand">Brand</a>
+        <p class="navbar-text">Signed in as Mark Otto</p>
+      </div>
+    </div>
+{% highlight html linenos %}
+<div class="navbar">
+  <a href="#" class="navbar-brand">Brand</a>
+  <p class="navbar-text">Signed in as Mark Otto</p>
+</div>
+{% endhighlight %}
+
+    <h3 id="navbar-links">Links</h3>
+    <p>For folks using standard links that are not within the regular navbar navigation component, use the <code>.navbar-link</code> class to add the proper colors for the default and inverse navbar options.</p>
+    <div class="bs-docs-example">
+      <div class="navbar">
+        <a href="#" class="navbar-brand">Brand</a>
+        <p class="pull-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+      </div>
+    </div>
+{% highlight html linenos %}
+<div class="navbar">
+  <a href="#" class="navbar-brand">Brand</a>
+  <p class="pull-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+</div>
+{% endhighlight %}
+
+    <h3 id="navbar-component-alignment">Component alignment</h3>
+    <p>Align nav links, search form, or text, use the <code>.pull-left</code> or <code>.pull-right</code> utility classes. Both classes will add a CSS float in the specified direction.</p>
 
 
     <h2>Optional display variations</h2>
@@ -4934,7 +4994,7 @@ $('#myModal').on('show', function (e) {
     <h3>Static example</h3>
     <p>A rendered modal with header, body, and set of actions in the footer.</p>
     <div class="bs-docs-example bs-docs-example-modal">
-      <div class="modal fade">
+      <div class="modal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -5019,27 +5079,27 @@ $('#myModal').on('show', function (e) {
       <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a>
     </div><!-- /example -->
 {% highlight html %}
-<div class="modal">
   <!-- Button trigger modal -->
   <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a>
 
   <!-- Modal -->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <a href="#" class="btn">Close</a>
-        <a href="#" class="btn btn-primary">Save changes</a>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dalog -->
-</div><!-- /.modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn">Close</a>
+          <a href="#" class="btn btn-primary">Save changes</a>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dalog -->
+  </div><!-- /.modal -->
 {% endhighlight %}
 
 
@@ -5733,7 +5793,6 @@ $('#example').tooltip(options)
 
           <div class="clearfix"></div>
         </div>
-        <p>No markup shown as popovers are generated from JavaScript and content within a <code>data</code> attribute.</p>
 
         <h3>Live demo</h3>
         <div class="bs-docs-example" style="padding-bottom: 24px;">
