@@ -21,12 +21,18 @@ body {
 .bs-docs-nav {
   background-color: #b94a48;
 }
-.bs-docs-nav .navbar-brand,
+.bs-docs-nav .navbar-brand {
+  color: #fff;
+}
 .bs-docs-nav .navbar-nav > li > a {
+  color: #dfc9c8;
+}
+.bs-docs-nav .navbar-nav > li > a:hover {
   color: #fff;
 }
 .bs-docs-nav .navbar-nav > .active > a,
 .bs-docs-nav .navbar-nav > .active > a:hover {
+  color: #fff;
   background-color: #993c3a;
 }
 .bs-docs-nav .navbar-toggle {
@@ -286,6 +292,16 @@ body {
 .bs-example-type h5,
 .bs-example-type h6 {
   margin: 0;
+}
+
+/* Forms */
+.bs-example.form-inline select,
+.bs-example.form-inline input[type="text"],
+.bs-example.form-inline input[type="password"] {
+  width: 180px;
+}
+.bs-example-control-sizing input[type="text"] + input[type="text"] {
+  margin-top: 10px;
 }
 
 /* List groups */

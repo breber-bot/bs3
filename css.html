@@ -66,7 +66,7 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
     <p class="lead">Bootstrap includes a responsive, percent-based grid system that appropriately scales up to 12 columns as the device or viewport size increases&mdash;in other words, it's mobile first. It includes <a href="#grid-example">predefined classes</a> for this, as well as powerful <a href="#grid-less">mixins for generating semantic layouts</a>.</p>
 
     <h3 id="grid-example">Grid example</h3>
-    <p>On mobile devices, the grid starts out stacked. Above 768px, it becomes horizontal as media queries kick in to apply <code>float</code>s and <code>width</code>s. To create a basic grid layout, wrap a series of <code>.col-span-*</code> elements within a <code>.row</code>. As this is a 12-column grid, each <code>.col-span-*</code> spans a number of those 12 columns, and should always add up to 12 for each row (or the number of columns in the parent), even at mobile resolutions.</p>
+    <p>On mobile devices, the grid starts out stacked. Above 768px, it becomes horizontal as media queries kick in to apply <code>float</code>s and <code>width</code>s. To create a basic grid layout, wrap a series of <code>.col-lg-*</code> elements within a <code>.row</code>. As this is a 12-column grid, each <code>.col-lg-*</code> spans a number of those 12 columns, and should always add up to 12 for each row (or the number of columns in the parent), even at mobile resolutions.</p>
     <div class="bs-docs-grid">
       <div class="row show-grid">
         <div class="col col-lg-1">1</div>
@@ -149,7 +149,7 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
 
 
     <h3 id="grid-nesting">Nesting columns</h3>
-    <p>To nest your content with the default grid, add a new <code>.row</code> and set of <code>.col-span-*</code> columns within an existing <code>.col-span-*</code> column. Nested rows should include a set of columns that add up to 12.</p>
+    <p>To nest your content with the default grid, add a new <code>.row</code> and set of <code>.col-lg-*</code> columns within an existing <code>.col-lg-*</code> column. Nested rows should include a set of columns that add up to 12.</p>
     <div class="row show-grid">
       <div class="col col-lg-9">
         Level 1: 9 columns
@@ -1051,8 +1051,8 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <p>Inputs, selects, and textareas are 100% wide by default in Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.</p>
     </div>
     <form class="bs-example form-inline">
-      <input type="text" placeholder="Email" style="width: 180px;">
-      <input type="password" placeholder="Password" style="width: 180px;">
+      <input type="text" placeholder="Email">
+      <input type="password" placeholder="Password">
       <div class="checkbox">
         <label>
           <input type="checkbox"> Remember me
@@ -1062,8 +1062,8 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     </form><!-- /example -->
 {% highlight html %}
 <form class="form-inline">
-  <input type="text" placeholder="Email" style="width: 180px;">
-  <input type="password" placeholder="Password" style="width: 180px;">
+  <input type="text" placeholder="Email">
+  <input type="password" placeholder="Password">
   <div class="checkbox">
     <label>
       <input type="checkbox"> Remember me
@@ -1132,7 +1132,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <h4>Type declaration required</h4>
       <p>Inputs will only be fully styled if their <code>type</code> is properly declared.</p>
     </div>
-    <form class="bs-example form-inline">
+    <form class="bs-example">
       <input type="text" placeholder="Text input">
     </form>
 {% highlight html %}
@@ -1141,7 +1141,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
     <h3>Textarea</h3>
     <p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>
-    <form class="bs-example form-inline">
+    <form class="bs-example">
       <textarea rows="3"></textarea>
     </form>
 {% highlight html %}
@@ -1257,7 +1257,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
     <h3 id="forms-input-focus">Input focus</h3>
     <p>We remove the default <code>outline</code> styles on some form controls and apply a <code>box-shadow</code> in its place for <code>:focus</code>.</p>
-    <form class="bs-example form-inline">
+    <form class="bs-example">
       <input class="focused" id="focusedInput" type="text" value="This is focused...">
     </form>
 {% highlight html %}
@@ -1272,7 +1272,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <p>Invalid inputs are styled via the <code>:invalid</code> CSS selector, which is not supported by Internet Explorer 9 and below.</p>
     </div>
 
-    <form class="bs-example form-inline">
+    <form class="bs-example">
       <input type="email" placeholder="test@example.com" required>
     </form>
 {% highlight html %}
@@ -1281,7 +1281,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
     <h3 id="forms-disabled-inputs">Disabled inputs</h3>
     <p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly different look.</p>
-    <form class="bs-example form-inline">
+    <form class="bs-example">
       <input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
     </form>
 {% highlight html %}
@@ -1303,14 +1303,10 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
     <form class="bs-example form-inline">
       <fieldset disabled>
-        <div>
-          <input type="text" class="col col-lg-4" placeholder="Disabled input">
-        </div>
-        <div>
-          <select class="col col-lg-4">
-            <option>Disabled select</option>
-          </select>
-        </div>
+        <input type="text" placeholder="Disabled input">
+        <select>
+          <option>Disabled select</option>
+        </select>
         <div class="checkbox">
           <label>
             <input type="checkbox"> Can't check this
@@ -1323,10 +1319,10 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 <form class="form-inline">
   <fieldset disabled>
     <div>
-      <input type="text" class="col col-lg-4" placeholder="Disabled input">
+      <input type="text" placeholder="Disabled input">
     </div>
     <div>
-      <select class="col col-lg-4">
+      <select>
         <option>Disabled select</option>
       </select>
     </div>
@@ -1621,11 +1617,11 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 {% endhighlight %}
 
     <h3 id="forms-control-sizes">Control sizing</h3>
-    <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.col-span-*</code> classes.</p>
+    <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.col-lg-*</code> classes.</p>
 
     <h4>Relative sizing</h4>
     <p>Create larger or smaller form controls that match button sizes.</p>
-    <form class="bs-example" style="padding-bottom: 15px;">
+    <form class="bs-example bs-example-control-sizing">
       <div class="controls docs-input-sizes">
         <input class="input-large" type="text" placeholder=".input-large">
         <input type="text" placeholder="Default input">
@@ -1738,7 +1734,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 {% endhighlight %}
 
     <h2 id="buttons-sizes">Button sizes</h2>
-    <p>Fancy larger or smaller buttons? Add <code>.btn-large</code>, <code>.btn-small</code>, or <code>.btn-mini</code> for additional sizes.</p>
+    <p>Fancy larger or smaller buttons? Add <code>.btn-large</code> or <code>.btn-small</code> for additional sizes.</p>
     <div class="bs-example">
       <p>
         <button type="button" class="btn btn-primary btn-large">Large button</button>
@@ -1751,10 +1747,6 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <p>
         <button type="button" class="btn btn-primary btn-small">Small button</button>
         <button type="button" class="btn btn-default btn-small">Small button</button>
-      </p>
-      <p>
-        <button type="button" class="btn btn-primary btn-mini">Mini button</button>
-        <button type="button" class="btn btn-default btn-mini">Mini button</button>
       </p>
     </div>
 {% highlight html %}
@@ -1769,10 +1761,6 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 <p>
   <button type="button" class="btn btn-primary btn-small">Small button</button>
   <button type="button" class="btn btn-default btn-small">Small button</button>
-</p>
-<p>
-  <button type="button" class="btn btn-primary btn-mini">Mini button</button>
-  <button type="button" class="btn btn-default btn-mini">Mini button</button>
 </p>
 {% endhighlight %}
 
